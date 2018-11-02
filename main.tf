@@ -15,9 +15,7 @@ variable "lin-os" {
   description = "Name convention putting the OS in the name of the system"
 }
 
-###Generating hostname output with echo command  
-resource "null_resource" "helloWorld" {
-  provisioner "local-exec" {
-    command = "echo This generates name the following hostname  web-${var.lin-os}-${random_pet.server.id}"
-  }
+###Module for generating hostname output with echo command  
+module "first-module" {
+  source = "./modules/first-module"
 }
